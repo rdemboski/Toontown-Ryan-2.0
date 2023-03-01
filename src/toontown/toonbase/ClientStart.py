@@ -131,18 +131,17 @@ DirectGuiGlobals.setDefaultDialogGeom(loader.loadModel('phase_3/models/gui/dialo
 import TTLocalizer
 from otp.otpbase import OTPGlobals
 OTPGlobals.setDefaultProductPrefix(TTLocalizer.ProductPrefix)
-if base.musicManagerIsValid:
-    themeList = ('phase_3/audio/bgm/tti_theme.ogg', 'phase_3/audio/bgm/tti_theme_2.ogg')
-    music = base.loadMusic(random.choice(themeList))
-    if music:
-        music.setLoop(1)
-        music.setVolume(0.9)
-        music.play()
-    notify.info('Loading the default GUI sounds...')
-    DirectGuiGlobals.setDefaultRolloverSound(base.loadSfx('phase_3/audio/sfx/GUI_rollover.ogg'))
-    DirectGuiGlobals.setDefaultClickSound(base.loadSfx('phase_3/audio/sfx/GUI_create_toon_fwd.ogg'))
-else:
-    music = None
+#if base.musicManagerIsValid:
+music = base.loadMusic('phase_3/audio/bgm/Dearly_Beloved_Toontownified_better.mid')
+music.setLoop(1)
+music.setVolume(0.9)
+music.play()
+    
+notify.info('Loading the default GUI sounds...')
+DirectGuiGlobals.setDefaultRolloverSound(base.loadSfx('phase_3/audio/sfx/GUI_rollover.ogg'))
+DirectGuiGlobals.setDefaultClickSound(base.loadSfx('phase_3/audio/sfx/GUI_create_toon_fwd.ogg'))
+#else:
+    #music = None
 import ToontownLoader
 from direct.gui.DirectGui import *
 serverVersion = base.config.GetString('server-version', 'no_version_set')

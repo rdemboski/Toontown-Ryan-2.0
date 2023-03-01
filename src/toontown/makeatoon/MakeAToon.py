@@ -289,7 +289,7 @@ class MakeAToon(StateData.StateData):
         self.cos.load()
         self.cls.load()
         self.ns.load()
-        self.music = base.loadMusic('phase_3/audio/bgm/create_a_toon.ogg')
+        self.music = base.loadMusic('phase_3/audio/bgm/Hand_in_Hand_Toontownified.mid')
         self.musicVolume = base.config.GetFloat('makeatoon-music-volume', 1)
         self.sfxVolume = base.config.GetFloat('makeatoon-sfx-volume', 1)
         self.soundBack = base.loadSfx('phase_3/audio/sfx/GUI_create_toon_back.ogg')

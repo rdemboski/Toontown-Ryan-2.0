@@ -13,7 +13,7 @@ import operator
 from pandac.PandaModules import *
 import random
 import time
-
+from direct.actor.Actor import Actor
 import Experience
 import InventoryNew
 import TTEmote
@@ -59,6 +59,7 @@ from toontown.speedchat import TTSCDecoders
 from toontown.suit import SuitDNA
 from toontown.toonbase import TTLocalizer
 from toontown.toonbase import ToontownGlobals
+from toontown.toon import Toon
 
 
 if base.wantKarts:
@@ -2678,3 +2679,41 @@ def promote(deptIndex):
     invoker = spellbook.getInvoker()
     invoker.sendUpdate('requestPromotion', [deptIndex])
     return 'Your promotion request has been sent.'
+
+@magicWord(category=CATEGORY_ADMINISTRATOR, types=[int])
+def twoseventeen():
+    '''
+    from toontown.toon import Toon
+    localToon = Toon.Toon()
+    localToon.reparentTo(render)
+    localToon.setDNA(base.localAvatar.style)
+
+    localToon.reparentTo(render)
+
+    sora = loader.loadModel("custom\models\sora\sora.egg")
+    sora.setScale(0.03)
+    sora.setP(90)
+    sora.setH(180)
+    sora.reparentTo(localAvatar)
+    '''
+ 
+    target = spellbook.getTarget()
+    leftHand = target.find('**/leftHand')
+    head = target.find('**/def_head')
+
+    for child in leftHand.getChildren():
+        child.removeNode()
+
+    napoleon = loader.loadTexture("custom\models\sora\R.png")
+    head.setTexture(napoleon, 1)
+    head.reparentTo(target)
+
+    keyblade = loader.loadModel("custom\models\sora\key.egg")
+    keybladeTex = loader.loadTexture("custom\models\sora\R.png")
+    keyblade.setTexture(keybladeTex, 1)
+    keyblade.setScale(0.04)
+    keyblade.reparentTo(leftHand)
+    
+    base.localAvatar.setName(('Happy Birthday Zack :D'))
+
+    return 'tina come get some dinner'

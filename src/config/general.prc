@@ -1,5 +1,5 @@
 # Window settings:
-window-title Toontown Ryan 2.0
+window-title Toontown Ryza
 win-origin -1 -1
 icon-filename phase_3/etc/icon.ico
 cursor-filename phase_3/etc/toonmono.cur

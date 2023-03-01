@@ -81,16 +81,13 @@ class ToontownLoadingScreen:
         self.__expectedCount = range
         if gui:
             if base.localAvatarStyle:
-                from toontown.toon import Toon
-                self.toon = Toon.Toon()
-                self.toon.setDNA(base.localAvatarStyle)
-                self.toon.loop('bored', fromFrame=135, toFrame=135)
-                self.toon.getGeomNode().setDepthWrite(1)
-                self.toon.getGeomNode().setDepthTest(1)
-                self.toon.setHpr(205, 0, 0)
-                self.toon.setScale(0.18)
-                self.toon.setPos(base.a2dBottomRight.getX()/1.25, 0, -0.034)
-                self.toon.reparentTo(self.waitBar)
+                sora = loader.loadModel("custom\models\sora\sora.egg")
+                sora.setScale(0.003)
+                sora.setP(90)
+                sora.setH(180)
+                sora.setHpr(205, 0, 0)
+                sora.setPos(base.a2dBottomRight.getX()/1.25, 0, -0.034)
+                sora.reparentTo(self.waitBar)
                 self.waitBar['frameSize'] = (base.a2dLeft+(base.a2dRight/8.15), base.a2dRight-(base.a2dRight/2.57), -0.03, 0.03)
             self.title.reparentTo(base.a2dpBottomLeft, LOADING_SCREEN_SORT_INDEX)
             self.title.setPos(0.24, 0, 0.23)
